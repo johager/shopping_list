@@ -15,6 +15,8 @@ class ItemController {
     var itemsNotPurchased: [Item] { return pItemsNotPurchased }  // section 0
     var itemsPurchased: [Item] { return pItemsPurchased }  // section 1
     
+    var shouldShowWelcome: Bool { return pShouldShowWelcome }
+    
     // source of truth
     private var items = [Item]() {
         didSet {
@@ -25,7 +27,16 @@ class ItemController {
     private var pItemsNotPurchased = [Item]()  // section 0
     private var pItemsPurchased = [Item]()  // section 1
     
-    private var nextId = 0
+    private var pShouldShowWelcome = false
+    
+    private var nextId = 0 {
+        didSet {
+            print("nextId didSet \(nextId)")
+            UserDefaults.standard.set(nextId, forKey: nextIdKey)
+        }
+    }
+    
+    private let nextIdKey = "nextId"
     
     private var persistentStoreURL: URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -37,16 +48,15 @@ class ItemController {
     
     init() {
         loadFromPersistentStore()
-        let itemWithMaxId = items.max { $0.id < $1.id}
-        guard let itemWithMaxId = itemWithMaxId else { return }
-        nextId = itemWithMaxId.id + 1
+        nextId = UserDefaults.standard.integer(forKey: nextIdKey)
+        pShouldShowWelcome = nextId == 0
     }
     
     // MARK: - Misc Methods
     
     private func sort() {
-        pItemsNotPurchased.sort(by: { $0.name < $1.name })
-        pItemsPurchased.sort(by: { $0.name < $1.name })
+        pItemsNotPurchased.sort { ($0.name, $0.id) < ($1.name, $1.id) }
+        pItemsPurchased.sort { ($0.name, $0.id) < ($1.name, $1.id) }
     }
     
     private func updateItemsPurchased() {

@@ -20,11 +20,30 @@ class ListViewController: UITableViewController {
     private var itemsPurchased: [Item] {  // section 1
         return itemController.itemsPurchased
     }
-
+    
+    // MARK:- Lifecycle
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if itemController.shouldShowWelcome {
+            showAddItem(showWelcome: true)
+        }
+    }
+    
     // MARK: - Actions
     
-    @IBAction func addButtonTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
+    func showAddItem(showWelcome: Bool = false) {
+        
+        var title = "Add Item"
+        var message: String?
+        
+        if showWelcome {
+            title = "Welcome to Shopping List!"
+            message = "Add an item to your list to get started."
+        }
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alertController.addTextField() { textField in
             textField.placeholder = "Enter item name..."
@@ -52,6 +71,10 @@ class ListViewController: UITableViewController {
         alertController.addAction(save)
         
         present(alertController, animated: true)
+    }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        showAddItem()
     }
 }
 
