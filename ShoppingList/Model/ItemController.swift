@@ -31,7 +31,6 @@ class ItemController {
     
     private var nextId = 0 {
         didSet {
-            print("nextId didSet \(nextId)")
             UserDefaults.standard.set(nextId, forKey: nextIdKey)
         }
     }
