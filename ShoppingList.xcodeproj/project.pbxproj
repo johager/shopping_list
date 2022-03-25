@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		F83206FE27EE04F600A230CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83206FD27EE04F600A230CC /* AppDelegate.swift */; };
 		F832070027EE04F600A230CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83206FF27EE04F600A230CC /* SceneDelegate.swift */; };
-		F832070227EE04F700A230CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832070127EE04F600A230CC /* ViewController.swift */; };
+		F832070227EE04F700A230CC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832070127EE04F600A230CC /* ListViewController.swift */; };
 		F832070527EE04F700A230CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F832070327EE04F700A230CC /* Main.storyboard */; };
 		F832070727EE04F700A230CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F832070627EE04F700A230CC /* Assets.xcassets */; };
 		F832070A27EE04F700A230CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F832070827EE04F700A230CC /* LaunchScreen.storyboard */; };
+		F832071727EE057700A230CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071627EE057700A230CC /* Item.swift */; };
+		F832071927EE05C700A230CC /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071827EE05C700A230CC /* ItemController.swift */; };
+		F832071E27EE0EB900A230CC /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071D27EE0EB900A230CC /* ItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F83206FA27EE04F600A230CC /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83206FD27EE04F600A230CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F83206FF27EE04F600A230CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F832070127EE04F600A230CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F832070127EE04F600A230CC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F832070427EE04F700A230CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F832070627EE04F700A230CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F832070927EE04F700A230CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F832070B27EE04F700A230CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F832071627EE057700A230CC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F832071827EE05C700A230CC /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
+		F832071D27EE0EB900A230CC /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,58 @@
 		F83206FC27EE04F600A230CC /* ShoppingList */ = {
 			isa = PBXGroup;
 			children = (
-				F83206FD27EE04F600A230CC /* AppDelegate.swift */,
-				F83206FF27EE04F600A230CC /* SceneDelegate.swift */,
-				F832070127EE04F600A230CC /* ViewController.swift */,
-				F832070327EE04F700A230CC /* Main.storyboard */,
-				F832070627EE04F700A230CC /* Assets.xcassets */,
-				F832070827EE04F700A230CC /* LaunchScreen.storyboard */,
-				F832070B27EE04F700A230CC /* Info.plist */,
+				F832071127EE050C00A230CC /* Resources */,
+				F832071327EE053F00A230CC /* Model */,
+				F832071427EE054700A230CC /* ViewControllers */,
+				F832071A27EE0C1400A230CC /* Views */,
+				F832071227EE053200A230CC /* Storyboards */,
 			);
 			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		F832071127EE050C00A230CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F83206FD27EE04F600A230CC /* AppDelegate.swift */,
+				F83206FF27EE04F600A230CC /* SceneDelegate.swift */,
+				F832070627EE04F700A230CC /* Assets.xcassets */,
+				F832070B27EE04F700A230CC /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F832071227EE053200A230CC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F832070327EE04F700A230CC /* Main.storyboard */,
+				F832070827EE04F700A230CC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F832071327EE053F00A230CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F832071627EE057700A230CC /* Item.swift */,
+				F832071827EE05C700A230CC /* ItemController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F832071427EE054700A230CC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F832070127EE04F600A230CC /* ListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F832071A27EE0C1400A230CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F832071D27EE0EB900A230CC /* ItemTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F832070227EE04F700A230CC /* ViewController.swift in Sources */,
+				F832071727EE057700A230CC /* Item.swift in Sources */,
+				F832070227EE04F700A230CC /* ListViewController.swift in Sources */,
 				F83206FE27EE04F600A230CC /* AppDelegate.swift in Sources */,
+				F832071927EE05C700A230CC /* ItemController.swift in Sources */,
+				F832071E27EE0EB900A230CC /* ItemTableViewCell.swift in Sources */,
 				F832070027EE04F600A230CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37H8X6K6NN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShoppingList/Info.plist;
+				INFOPLIST_FILE = ShoppingList/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +369,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37H8X6K6NN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShoppingList/Info.plist;
+				INFOPLIST_FILE = ShoppingList/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
