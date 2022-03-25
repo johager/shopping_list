@@ -12,8 +12,8 @@ class ItemController {
     // MARK: - Properties
     
     // access to truth
-    var itemsNotPurchased = [Item]()  // section 0
-    var itemsPurchased = [Item]()  // section 1
+    var itemsNotPurchased: [Item] { return pItemsNotPurchased }  // section 0
+    var itemsPurchased: [Item] { return pItemsPurchased }  // section 1
     
     // source of truth
     private var items = [Item]() {
@@ -21,6 +21,9 @@ class ItemController {
             updateItemsPurchased()
         }
     }
+    
+    private var pItemsNotPurchased = [Item]()  // section 0
+    private var pItemsPurchased = [Item]()  // section 1
     
     private var nextId = 0
     
@@ -42,13 +45,13 @@ class ItemController {
     // MARK: - Misc Methods
     
     private func sort() {
-        itemsNotPurchased.sort(by: { $0.name < $1.name })
-        itemsPurchased.sort(by: { $0.name < $1.name })
+        pItemsNotPurchased.sort(by: { $0.name < $1.name })
+        pItemsPurchased.sort(by: { $0.name < $1.name })
     }
     
     private func updateItemsPurchased() {
-        itemsNotPurchased = items.filter { !$0.purchased }
-        itemsPurchased = items.filter { $0.purchased }
+        pItemsNotPurchased = items.filter { !$0.purchased }
+        pItemsPurchased = items.filter { $0.purchased }
         sort()
     }
     
@@ -66,9 +69,9 @@ class ItemController {
         // section 1 is purchased
         
         if indexPath.section == 0 {
-            itemsNotPurchased[indexPath.row].togglePurchased()
+            pItemsNotPurchased[indexPath.row].togglePurchased()
         } else {
-            itemsPurchased[indexPath.row].togglePurchased()
+            pItemsPurchased[indexPath.row].togglePurchased()
         }
         updateItemsPurchased()
         saveToPersistentStore()
@@ -80,9 +83,9 @@ class ItemController {
         
         let index: Int?
         if indexPath.section == 0 {
-            index = items.firstIndex(of: itemsNotPurchased[indexPath.row])
+            index = items.firstIndex(of: pItemsNotPurchased[indexPath.row])
         } else {
-            index = items.firstIndex(of: itemsPurchased[indexPath.row])
+            index = items.firstIndex(of: pItemsPurchased[indexPath.row])
         }
         
         guard let index = index else { return }
