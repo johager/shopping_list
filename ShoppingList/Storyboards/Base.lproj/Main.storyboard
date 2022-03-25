@@ -23,38 +23,50 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-bn-37B">
-                                            <rect key="frame" x="28" y="15" width="358" height="94"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JYc-An-hgD">
+                                            <rect key="frame" x="28" y="15" width="358" height="98"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC8-R1-lVc">
-                                                    <rect key="frame" x="0.0" y="35" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="wC8-R1-lVc" secondAttribute="height" multiplier="1:1" id="MMe-fO-qKo"/>
-                                                        <constraint firstAttribute="height" constant="24" id="TJa-37-Dvh"/>
-                                                    </constraints>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="Button" image="notPurchased"/>
-                                                    <connections>
-                                                        <action selector="purchasedButtonTapped:" destination="3Hw-no-sVC" eventType="touchUpInside" id="dmr-vk-V38"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(item)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-Ak-D3y">
-                                                    <rect key="frame" x="32" y="38.5" width="326" height="17"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DF0-bn-37B">
+                                                    <rect key="frame" x="0.0" y="37" width="171" height="24"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC8-R1-lVc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="wC8-R1-lVc" secondAttribute="height" multiplier="1:1" id="MMe-fO-qKo"/>
+                                                                <constraint firstAttribute="height" constant="24" id="TJa-37-Dvh"/>
+                                                            </constraints>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="Button" image="notPurchased"/>
+                                                            <connections>
+                                                                <action selector="purchasedButtonTapped:" destination="3Hw-no-sVC" eventType="touchUpInside" id="dmr-vk-V38"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(item)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-Ak-D3y">
+                                                            <rect key="frame" x="32" y="3.5" width="139" height="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(amount)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knG-AK-PNT">
+                                                    <rect key="frame" x="187" y="40.5" width="171" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="DF0-bn-37B" firstAttribute="leading" secondItem="E7c-M0-Dog" secondAttribute="leadingMargin" constant="8" id="ZGd-B8-jjG"/>
-                                        <constraint firstItem="DF0-bn-37B" firstAttribute="top" secondItem="E7c-M0-Dog" secondAttribute="topMargin" constant="4" id="dLP-dq-ODq"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="DF0-bn-37B" secondAttribute="bottom" constant="8" id="p3e-B9-r7V"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="DF0-bn-37B" secondAttribute="trailing" constant="8" id="whm-DC-rFg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="JYc-An-hgD" secondAttribute="bottom" constant="4" id="3Q1-95-ktz"/>
+                                        <constraint firstItem="JYc-An-hgD" firstAttribute="leading" secondItem="E7c-M0-Dog" secondAttribute="leadingMargin" constant="8" id="O17-xO-UeS"/>
+                                        <constraint firstItem="JYc-An-hgD" firstAttribute="top" secondItem="E7c-M0-Dog" secondAttribute="topMargin" constant="4" id="VDz-7G-Thk"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JYc-An-hgD" secondAttribute="trailing" constant="8" id="qaj-fw-x8v"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="amountLabel" destination="knG-AK-PNT" id="ATy-R7-NJ3"/>
                                     <outlet property="nameLabel" destination="mmn-Ak-D3y" id="fQ6-YZ-PfM"/>
                                     <outlet property="purchasedButton" destination="wC8-R1-lVc" id="4bm-4U-BMp"/>
                                 </connections>

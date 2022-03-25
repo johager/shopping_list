@@ -19,6 +19,7 @@ class ItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var purchasedButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     // MARK: - Properties
     
@@ -33,6 +34,7 @@ class ItemTableViewCell: UITableViewCell {
             purchasedButton?.setImage(UIImage(named: "notPurchased"), for: .normal)
         }
         nameLabel?.text = item.name
+        amountLabel?.text = item.amount
         self.delegate = delegate
     }
     
