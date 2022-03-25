@@ -2,7 +2,7 @@
 
 This is the second self-assessment project for the Devmountain iOS App Developer Bootcamp.
 
-The app tracks a set of items in a shopping list. Items are added through a UIAlertController and data is persisted using a JSON file. UserDefaults is used to ttrack the next item.id (nextId).
+The app tracks a set of items in a shopping list. Items are added through a UIAlertController and data is persisted using a JSON file. UserDefaults is used to track the next item.id (nextId).
 
 Additions to the baseline project:
 
