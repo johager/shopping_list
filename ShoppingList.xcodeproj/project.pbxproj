@@ -16,6 +16,7 @@
 		F832071727EE057700A230CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071627EE057700A230CC /* Item.swift */; };
 		F832071927EE05C700A230CC /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071827EE05C700A230CC /* ItemController.swift */; };
 		F832071E27EE0EB900A230CC /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071D27EE0EB900A230CC /* ItemTableViewCell.swift */; };
+		F832072027EF5E1000A230CC /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832071F27EF5E1000A230CC /* ItemInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F832071627EE057700A230CC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F832071827EE05C700A230CC /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 		F832071D27EE0EB900A230CC /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		F832071F27EF5E1000A230CC /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				F832071627EE057700A230CC /* Item.swift */,
 				F832071827EE05C700A230CC /* ItemController.swift */,
+				F832071F27EF5E1000A230CC /* ItemInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				F832071727EE057700A230CC /* Item.swift in Sources */,
 				F832070227EE04F700A230CC /* ListViewController.swift in Sources */,
 				F83206FE27EE04F600A230CC /* AppDelegate.swift in Sources */,
+				F832072027EF5E1000A230CC /* ItemInfo.swift in Sources */,
 				F832071927EE05C700A230CC /* ItemController.swift in Sources */,
 				F832071E27EE0EB900A230CC /* ItemTableViewCell.swift in Sources */,
 				F832070027EE04F600A230CC /* SceneDelegate.swift in Sources */,
@@ -338,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 37H8X6K6NN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShoppingList/Resources/Info.plist;
@@ -366,7 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 37H8X6K6NN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShoppingList/Resources/Info.plist;

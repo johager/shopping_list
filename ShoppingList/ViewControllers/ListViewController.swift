@@ -108,7 +108,7 @@ extension ListViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            itemController.deleteItem(atIndexPath: indexPath)
+            itemController.deleteItem(atItemInfo: ItemInfo(indexPath: indexPath))
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -127,7 +127,7 @@ extension ListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemController.togglePurchased(forItemAtIndexPath: indexPath)
+        itemController.togglePurchased(forItemInfo: ItemInfo(indexPath: indexPath))
         tableView.reloadData()
     }
 }
@@ -138,7 +138,7 @@ extension ListViewController: ItemTableViewCellDelegate {
     
     func togglePurchased(for cell: ItemTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        itemController.togglePurchased(forItemAtIndexPath: indexPath)
+        itemController.togglePurchased(forItemInfo: ItemInfo(indexPath: indexPath))
         tableView.reloadData()
     }
 }

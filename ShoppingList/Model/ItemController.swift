@@ -12,8 +12,8 @@ class ItemController {
     // MARK: - Properties
     
     // access to truth
-    var itemsNotPurchased: [Item] { return pItemsNotPurchased }  // section 0
-    var itemsPurchased: [Item] { return pItemsPurchased }  // section 1
+    var itemsNotPurchased: [Item] { return pItemsNotPurchased }
+    var itemsPurchased: [Item] { return pItemsPurchased }
     
     var shouldShowWelcome: Bool { return pShouldShowWelcome }
     
@@ -24,8 +24,8 @@ class ItemController {
         }
     }
     
-    private var pItemsNotPurchased = [Item]()  // section 0
-    private var pItemsPurchased = [Item]()  // section 1
+    private var pItemsNotPurchased = [Item]()
+    private var pItemsPurchased = [Item]()
     
     private var pShouldShowWelcome = false
     
@@ -53,11 +53,6 @@ class ItemController {
     
     // MARK: - Misc Methods
     
-    private func sort() {
-        sort(&pItemsNotPurchased)
-        sort(&pItemsPurchased)
-    }
-    
     private func sort(_ items: inout [Item]) {
         items.sort { ($0.name, $0.id) < ($1.name, $1.id) }
     }
@@ -65,7 +60,8 @@ class ItemController {
     private func updateItemsPurchased() {
         pItemsNotPurchased = items.filter { !$0.purchased }
         pItemsPurchased = items.filter { $0.purchased }
-        sort()
+        sort(&pItemsNotPurchased)
+        sort(&pItemsPurchased)
     }
     
     // MARK: - CRUD
@@ -77,30 +73,26 @@ class ItemController {
         saveToPersistentStore()
     }
     
-    func togglePurchased(forItemAtIndexPath indexPath: IndexPath) {
-        // section 0 is not purchased
-        // section 1 is purchased
+    func togglePurchased(forItemInfo itemInfo: ItemInfo) {
         
-        if indexPath.section == 0 {
-            pItemsNotPurchased[indexPath.row].togglePurchased()
+        if itemInfo.purchased {
+            pItemsPurchased[itemInfo.index].togglePurchased()
         } else {
-            pItemsPurchased[indexPath.row].togglePurchased()
+            pItemsNotPurchased[itemInfo.index].togglePurchased()
         }
         updateItemsPurchased()
         saveToPersistentStore()
     }
     
-    func deleteItem(atIndexPath indexPath: IndexPath) {
-        // section 0 is not purchased
-        // section 1 is purchased
+    func deleteItem(atItemInfo itemInfo: ItemInfo) {
         
         let index: Int?
-        if indexPath.section == 0 {
-            index = items.firstIndex(of: pItemsNotPurchased[indexPath.row])
-            pItemsNotPurchased.remove(at: indexPath.row)
+        if itemInfo.purchased {
+            index = items.firstIndex(of: pItemsPurchased[itemInfo.index])
+            pItemsPurchased.remove(at: itemInfo.index)
         } else {
-            index = items.firstIndex(of: pItemsPurchased[indexPath.row])
-            pItemsPurchased.remove(at: indexPath.row)
+            index = items.firstIndex(of: pItemsNotPurchased[itemInfo.index])
+            pItemsNotPurchased.remove(at: itemInfo.index)
         }
         
         guard let index = index else { return }
