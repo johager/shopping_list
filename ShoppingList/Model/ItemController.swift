@@ -54,8 +54,12 @@ class ItemController {
     // MARK: - Misc Methods
     
     private func sort() {
-        pItemsNotPurchased.sort { ($0.name, $0.id) < ($1.name, $1.id) }
-        pItemsPurchased.sort { ($0.name, $0.id) < ($1.name, $1.id) }
+        sort(&pItemsNotPurchased)
+        sort(&pItemsPurchased)
+    }
+    
+    private func sort(_ items: inout [Item]) {
+        items.sort { ($0.name, $0.id) < ($1.name, $1.id) }
     }
     
     private func updateItemsPurchased() {
@@ -69,7 +73,7 @@ class ItemController {
     func createItem(named name: String, withAmount amount: String) {
         items.append(Item(id: nextId, name: name, amount: amount))
         nextId += 1
-        sort()
+        sort(&pItemsNotPurchased)
         saveToPersistentStore()
     }
     
@@ -93,14 +97,15 @@ class ItemController {
         let index: Int?
         if indexPath.section == 0 {
             index = items.firstIndex(of: pItemsNotPurchased[indexPath.row])
+            pItemsNotPurchased.remove(at: indexPath.row)
         } else {
             index = items.firstIndex(of: pItemsPurchased[indexPath.row])
+            pItemsPurchased.remove(at: indexPath.row)
         }
         
         guard let index = index else { return }
         
         items.remove(at: index)
-        updateItemsPurchased()
         saveToPersistentStore()
     }
     
